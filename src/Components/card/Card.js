@@ -2,8 +2,11 @@ import React from 'react';
 import Product from '../product/Product';
 import './card.css'
 
-const Card = ({ card }) => {
-    console.log(card)
+const Card = (props) => {
+    const {card}=props
+    console.log(props)
+    
+   
     let total = 0
     let shipping = 0
     let tax = 0
@@ -27,6 +30,8 @@ const Card = ({ card }) => {
             <p>shipping price :${shipping}</p>
             <p>Tax :{tax}</p>
             <h4>Grand Total :{gTotal}</h4>
+            {props.children}
+          
 
 
         </div>

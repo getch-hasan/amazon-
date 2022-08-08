@@ -1,20 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
+import useProducts from '../../hooks/useproducts';
 import { addToDb, getStoredCard } from '../../utilities/fakedb';
 import Card from '../card/Card';
 import Product from '../product/Product';
+import {Link} from 'react-router-dom'
 
 
 import './Shop.css'
 
 const Shop = () => {
-    const [products, setProducts] = useState([])
-    const [card, setCard] = useState([])
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-
-    }, [])
+    const [products,setProducts]=useProducts()
+    const[card,setCard]=useProducts()
 
     useEffect(() => {
 
@@ -67,7 +63,11 @@ const Shop = () => {
 
             </div>
             <div className="card-container">
-                <Card card={card}></Card>
+                <Card card={card}>
+                    <Link to='/order'>
+                        <button>Review order</button>
+                    </Link>
+                </Card>
 
             </div>
         </div>
