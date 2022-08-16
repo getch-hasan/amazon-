@@ -4,9 +4,10 @@ import useProducts from '../../hooks/useproducts';
 import { removeFromDb } from '../../utilities/fakedb';
 import Card from '../card/Card';
 import Rivew from '../Rivew/Rivew';
-import{Link} from 'react-router-dom'
+import{Link, useNavigate} from 'react-router-dom'
 
 const Order = () => {
+    const navigat=useNavigate();
     const [products, setProducts] = useProducts()
     const [card, setCard] = usecard(products);
     const handleRemoveProduct=product=>{
@@ -32,7 +33,7 @@ const Order = () => {
                 <Card card={card}
                 >
 
-                 <Link to='/inventory'> <button>Proceed checkout</button></Link>
+                 <button onClick={()=>navigat('/shipment')}>Proceed checkout</button>
                 </Card>
             </div>
 
