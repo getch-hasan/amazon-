@@ -7,10 +7,11 @@ import {Link} from 'react-router-dom'
 
 
 import './Shop.css'
+import usecard from '../../hooks/Usecard';
 
 const Shop = () => {
     const [products,setProducts]=useProducts()
-    const[card,setCard]=useProducts()
+    const[card,setCard]=usecard(products)
 
     useEffect(() => {
 

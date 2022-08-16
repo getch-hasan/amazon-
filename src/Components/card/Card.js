@@ -1,10 +1,9 @@
 import React from 'react';
-import Product from '../product/Product';
 import './card.css'
 
 const Card = (props) => {
     const {card}=props
-    console.log(props)
+    
     
    
     let total = 0
@@ -15,7 +14,7 @@ const Card = (props) => {
     for (const product of card) {
         total = total + ((product.price) * (product.quantity))
         shipping = shipping + product.shipping
-        tax = ((total * 10) / 100).toFixed(0);
+        tax = ((total * 10) / 100).toFixed(2);
         gTotal = total + shipping + parseFloat(tax)
         quantity = quantity + product.quantity
     }
